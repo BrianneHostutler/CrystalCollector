@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Crystal Collector!</title>
+    </head>
+		 <style>
+			h1 {
+				font-size: 40px;
+				font-weight: bold;
+				font-family: Impact;		
+				text-shadow:5px 5px 0px rgba(0,0,0,0.2);
+				width: 70%;
+				margin-left: 120px;
+				text-align: center;
+			}
+		 	body{
+		 		background-image: url("background.jpg")
+		 	}
+		 	h2{
+		 		font-size: 12pt;
+		 		background-color: white;
+		 		width: 70%;
+		 		text-align: center;
+		 		margin-left: 120px;
+		 		border: solid 1px black;
+		 		font-family: Arial, sans-serif;
+		 	}
+		 	span#number{
+		 		font-size: 20px;
+		 	}
+		 	span#Combined{
+		 		font-size: 20px;
+		 	}
+		 	.JewelStyle{
+		 		height: 80px;	
+		 	}
+		 	.jewels{
+		 		width: 70%;
+				margin-left: 120px;
+				text-align: center;
+				
+			}
+		 	img{
+		 		border: solid 1px black; 
+		 	}
+
+
+		 </style>   
+    <body>
+    	<h1>Crystal Collector</h1>
+
+    	<h2>
+    		Instructions:<br>
+    			You will be given a random number at the start of the game.
+    			<br><br>
+	    		There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.
+	    		<br><br>
+	    		You win the game by matching your total score to the random number. You lose the game if your total score goe sabove the random number.
+	    		<br><br>
+	    		The value of each crystal is hidden from you until you click on it.
+	    		<br><br>
+	    		Each time when the game starts, the game will change the values of each crystal.
+	    		<br><br>
+    	</h2>
+    	
+    		<h2>
+	    		Wins: <span id= "numberWins"></span>
+	    		<br>
+	    		Losses: <span id= "numberLosses"></span>
+    		</h2>
+    
+
+    	<br>
+
+
+<div class="jewels">
+    	<img src="image1.png" class=JewelStyle id="one">
+    	<img src="image2.png" class=JewelStyle id="two">
+    	<img src="image3.png" class=JewelStyle id= "three">
+    	<img src="image4.png" class=JewelStyle id= "four">
+</div>    	
+<h2>Number to match: <span id= "number"></span></h2>
+    	<h2>Your number: <span id="Combined"></span></h2>
+    	
+
+    	<!-- <ul><span id= "buttons"></span></ul> -->
+
+<script type = "text/javascript" src= "https:/code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<script type= "text/javascript">
+
+//sets up random number user is trying to match
+	$( document ).ready(function(){
+		var Random=Math.floor(Math.random()*101+19)
+		console.log(Random)
+		$('#number').text(Random);
+
+		
+
+//sets up random numbers for each jewel
+			var num1= Math.floor(Math.random()*11+1)
+	        console.log("num1: " + num1)
+
+	        var num2= Math.floor(Math.random()*11+1)
+	        console.log("num2: " + num2)
+
+	         var num3= Math.floor(Math.random()*11+1)
+	        console.log("num3: " + num3)
+
+	         var num4= Math.floor(Math.random()*11+1)
+	        console.log("num4: " + num4)
+
+
+//	setting up total variable and printing the wins & losses variables	
+	var total= 0;	
+	var wins= 0;
+	var losses = 0;
+	$('#numberWins').text(wins);
+	$('#numberLosses').text(losses);
+
+
+//resets the game
+function reset(){
+        Random=Math.floor(Math.random()*101+19);
+        console.log(Random)
+        $('#number').text(Random);
+        num1= Math.floor(Math.random()*11+1);
+        num2= Math.floor(Math.random()*11+1);
+        num3= Math.floor(Math.random()*11+1);
+        num4= Math.floor(Math.random()*11+1);
+        total= 0;
+        $('#Combined').text(total);
+        } 
+
+//adds the wins to the total
+function yay(){
+	alert("You won!!!");
+		wins++;	
+		$('#numberWins').text(wins);
+		reset();
+}
+
+//addes the losses to the total
+function loser(){
+	alert ("You lose!!");
+		losses++;
+		$('#numberLosses').text(losses);
+		reset()
+}
+
+
+//sets up click for jewels
+		$('#one').on ('click', function(){
+			total = total + num1;
+			console.log("New total= " + total);
+			$('#Combined').text(total);	
+
+						//sets win/lose conditions
+					if (total == Random){
+						yay();
+					}
+					else if ( total > Random){
+						loser();
+					}		
+		})	
+
+		$('#two').on ('click', function(){
+			total = total + num2;
+			console.log("New total= " + total);
+			$('#Combined').text(total);	
+
+					if (total == Random){
+						yay();
+					}
+					else if ( total > Random){
+						loser();
+					}	
+		})	
+
+		$('#three').on ('click', function(){
+			total = total + num3;
+			console.log("New total= " + total);
+			$('#Combined').text(total);
+
+	//sets win/lose conditions
+						if (total == Random){
+						yay();
+					}
+					else if ( total > Random){
+						loser();
+					}	
+		})	
+
+		$('#four').on ('click', function(){
+			total = total + num4;
+			console.log("New total= " + total);
+			$('#Combined').text(total);	
+
+				
+						if (total == Random){
+						yay();
+					}
+					else if ( total > Random){
+						loser();
+					}
+		});  	
+
+});	
+	
+
+
+
+
+</script>
+
+
+</body>
+</html>
