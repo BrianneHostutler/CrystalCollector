@@ -1,0 +1,63 @@
+body{
+		background-image: url("background.jpg")
+	}
+h1 {
+	font-size: 40px;
+	font-weight: bold;
+	font-family: Impact;		
+	text-shadow:5px 5px 0px rgba(0,0,0,0.2);
+	width: 70%;
+	margin-left: 120px;
+	text-align: center;
+}
+#wrapper{
+	margin-left: 50px;
+	margin-right: 50px;
+}
+	
+#WrapNumbers{
+
+}
+h2{
+	font-size: 12pt;
+	background-color: white;
+	text-align: center;
+	border: solid 3px black;
+	font-family: Arial, sans-serif;
+	background-color: rgba(200, 200, 200, 0.4);
+}
+#firstbox{
+	float:left;
+	width: 20%;
+	margin-right: 30px;
+	margin-left: 250px
+}
+#secondbox{
+	width: 16%;
+	display: inline-block;
+}
+
+span#number{
+	font-size: 20px;
+}
+span#Combined{
+	font-size: 20px;
+}
+.JewelStyle{
+	height: 80px;	
+}
+.jewels{
+	width: 70%;
+margin-left: 120px;
+text-align: center;
+
+}
+img{
+	border: solid 1px black; 
+}
+
+@media (max-width: 700px){
+	
+}
+
+  

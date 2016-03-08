@@ -1,55 +1,16 @@
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reset.css">
+
     <head>
         <title>Crystal Collector!</title>
     </head>
-		 <style>
-			h1 {
-				font-size: 40px;
-				font-weight: bold;
-				font-family: Impact;		
-				text-shadow:5px 5px 0px rgba(0,0,0,0.2);
-				width: 70%;
-				margin-left: 120px;
-				text-align: center;
-			}
-		 	body{
-		 		background-image: url("background.jpg")
-		 	}
-		 	h2{
-		 		font-size: 12pt;
-		 		background-color: white;
-		 		width: 70%;
-		 		text-align: center;
-		 		margin-left: 120px;
-		 		border: solid 1px black;
-		 		font-family: Arial, sans-serif;
-		 	}
-		 	span#number{
-		 		font-size: 20px;
-		 	}
-		 	span#Combined{
-		 		font-size: 20px;
-		 	}
-		 	.JewelStyle{
-		 		height: 80px;	
-		 	}
-		 	.jewels{
-		 		width: 70%;
-				margin-left: 120px;
-				text-align: center;
-				
-			}
-		 	img{
-		 		border: solid 1px black; 
-		 	}
-
-
-		 </style>   
+		 
     <body>
     	<h1>Crystal Collector</h1>
-
+<div id= 'wrapper'>
     		<h2>
     			Instructions:
     			<br>
@@ -80,12 +41,15 @@
     	<img src="image2.png" class=JewelStyle id="two">
     	<img src="image3.png" class=JewelStyle id= "three">
     	<img src="image4.png" class=JewelStyle id= "four">
-</div>    	
-<h2>Number to match: <span id= "number"></span></h2>
-    	<h2>Your number: <span id="Combined"></span></h2>
-    	
+</div>  
 
-    	<!-- <ul><span id= "buttons"></span></ul> -->
+<div id= "WrapNumbers"></div>  	
+	<h2 id = "firstbox">Number to match: <span id= "number"></span></h2>
+	<h2 id = "secondbox">Your number: <span id="Combined"></span></h2>
+</div>	
+    	
+</div>
+ 
 
 <script type = "text/javascript" src= "https:/code.jquery.com/jquery-2.2.0.min.js"></script>
 
@@ -142,13 +106,15 @@ function yay(){
 		reset();
 }
 
-//addes the losses to the total
+//adds the losses to the total
 function loser(){
 	alert ("You lose!!");
 		losses++;
 		$('#numberLosses').text(losses);
 		reset()
 }
+
+
 
 
 //sets up click for jewels
